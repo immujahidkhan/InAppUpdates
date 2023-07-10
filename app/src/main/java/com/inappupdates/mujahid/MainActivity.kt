@@ -11,11 +11,10 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val packageName = "dzm.wamr.recover.deleted.messages.photo.media"//this.packageName
 
         // Launch the coroutine in a CoroutineScope
         lifecycleScope.launch {
-            val checkAppUpdate = CheckAppUpdate(this@MainActivity, packageName)
+            val checkAppUpdate = CheckAppUpdate(this@MainActivity, this@MainActivity.packageName)
             val isUpdated = checkAppUpdate.isAppUpdated()
 
             if (isUpdated) {
